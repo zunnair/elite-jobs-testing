@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteJob - Preparation Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .prep-tag {
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .tag-aptitude {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+        .tag-technical {
+            background: #dcfce7;
+            color: #22c55e;
+        }
+
+        .tag-hr {
+            background: #fef9c3;
+            color: #ca8a04;
+        }
+
+        .resource-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .resource-card .btn {
+            margin-top: auto;
+        }
+
+        .category-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        .category-btn {
+            padding: 0.6rem 1.2rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            white-space: nowrap;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html" class="logo">
+            <i data-lucide="briefcase"></i>
+            EliteJob
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Jobs</a>
+            <a href="index.html" class="active">Preparation</a>
+            <a href="../companies/index.html">Companies</a>
+            <a href="../dsa/index.html">DSA Prep</a>
+        </div>
+        <div class="user-actions" style="display: flex; align-items: center;">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i data-lucide="moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 4rem;">
+        <header class="animate-fade">
+            <h1>Interview Preparation Hub</h1>
+            <p style="color: var(--text-muted)">Everything you need to crack your next technical or non-technical
+                interview.</p>
+        </header>
+
+        <nav class="category-nav" style="margin-top: 3rem;">
+            <button class="category-btn active">All Resources</button>
+            <button class="category-btn">Aptitude</button>
+            <button class="category-btn">Data Structures</button>
+            <button class="category-btn">CS Fundamentals</button>
+            <button class="category-btn">HR Round</button>
+        </nav>
+
+        <div class="grid">
+            <!-- Item 1: Aptitude -->
+            <div class="card resource-card animate-fade">
+                <span class="prep-tag tag-aptitude">Aptitude</span>
+                <h3>Quantitative Masterclass</h3>
+                <p>Comprehensive guide to Numbers, Profit & Loss, Time & Work, and modern probability problems.</p>
+                <div style="margin: 1rem 0;">
+                    <small><i data-lucide="file-text" style="width:14px; position:relative; top:2px"></i> 12
+                        Topics</small>
+                    <small style="margin-left: 1rem;"><i data-lucide="play-circle"
+                            style="width:14px; position:relative; top:2px"></i> 4 Practice Sets</small>
+                </div>
+                <button class="btn btn-primary">Start Learning</button>
+            </div>
+
+            <!-- Item 2: Technical -->
+            <div class="card resource-card animate-fade" style="animation-delay: 0.1s">
+                <span class="prep-tag tag-technical">Technical</span>
+                <h3>DBMS & SQL Notes</h3>
+                <p>From normalization to indexing and complex joins. Interview-focused SQL query collection.</p>
+                <div style="margin: 1rem 0;">
+                    <small><i data-lucide="database" style="width:14px; position:relative; top:2px"></i> 45
+                        Notes</small>
+                    <small style="margin-left: 1rem;"><i data-lucide="terminal"
+                            style="width:14px; position:relative; top:2px"></i> 20+ Lab Tasks</small>
+                </div>
+                <button class="btn btn-primary">View Notes</button>
+            </div>
+
+            <!-- Item 3: HR -->
+            <div class="card resource-card animate-fade" style="animation-delay: 0.2s">
+                <span class="prep-tag tag-hr">HR</span>
+                <h3>HR Behavioral Toolkit</h3>
+                <p>Master the 'STAR' method and learn how to handle tricky questions about salary and gaps.</p>
+                <div style="margin: 1rem 0;">
+                    <small><i data-lucide="message-square" style="width:14px; position:relative; top:2px"></i> 50
+                        Questions</small>
+                    <small style="margin-left: 1rem;"><i data-lucide="check-circle"
+                            style="width:14px; position:relative; top:2px"></i> Mock Scripts</small>
+                </div>
+                <button class="btn btn-primary">Practice Now</button>
+            </div>
+
+            <!-- Item 4: CS Fundamentals -->
+            <div class="card resource-card animate-fade" style="animation-delay: 0.3s">
+                <span class="prep-tag tag-technical">Technical</span>
+                <h3>Operating Systems Essentials</h3>
+                <p>Processes, Threads, Semaphores, and Memory Management for tech rounds.</p>
+                <div style="margin: 1rem 0;">
+                    <small><i data-lucide="cpu" style="width:14px; position:relative; top:2px"></i> 15 Chapters</small>
+                </div>
+                <button class="btn btn-primary">Explore</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Simple Filter Logic (Visual only for now)
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // Filter logic could go here
+            });
+        });
+    </script>
+</body>
+
+</html>

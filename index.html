@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteJob - Modern Job Portal & Career Prep</title>
+    <meta name="description"
+        content="Find the best tech jobs and prepare for interviews with our comprehensive DSA sheets, company hiring patterns, and aptitude resources.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <i data-lucide="briefcase"></i>
+            EliteJob
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Jobs</a>
+            <a href="preparation/index.html">Preparation</a>
+            <a href="companies/index.html">Companies</a>
+            <a href="dsa/index.html">DSA Prep</a>
+        </div>
+        <div class="user-actions" style="display: flex; align-items: center;">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i data-lucide="moon"></i>
+            </button>
+            <button class="btn btn-outline">Post a Job</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero animate-fade">
+            <div class="container text-center">
+                <h1>Unlock Your <br>Dream Tech Career</h1>
+                <p>Expert-curated job opportunities and the ultimate preparation toolkit to help you ace your next
+                    interview.</p>
+                <div class="cta-group">
+                    <a href="#jobs" class="btn btn-primary">Browse Jobs</a>
+                    <a href="dsa/index.html" class="btn btn-outline">Start DSA Prep</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="jobs" class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <h2>Latest Opportunities</h2>
+                    <p style="color: var(--text-muted)">Handpicked roles from top companies</p>
+                </div>
+                <div class="filters">
+                    <!-- Add filter logic here if needed -->
+                </div>
+            </div>
+
+            <div class="grid">
+                <!-- Job Card 1 -->
+                <div class="card">
+                    <span class="job-tag">Full-time</span>
+                    <h3>Senior Software Engineer</h3>
+                    <p style="color: var(--text-muted); margin: 0.5rem 0;">Google • Mountain View, CA</p>
+                    <p>Work on the next generation of Search algorithms and AI integration.</p>
+                    <div class="job-meta">
+                        <span><i data-lucide="dollar-sign" style="width:16px"></i> $180k - $250k</span>
+                        <span><i data-lucide="clock" style="width:16px"></i> 2d ago</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Apply Now</button>
+                </div>
+
+                <!-- Job Card 2 -->
+                <div class="card">
+                    <span class="job-tag">Remote</span>
+                    <h3>Product Designer</h3>
+                    <p style="color: var(--text-muted); margin: 0.5rem 0;">Designhub • Global</p>
+                    <p>Shape the future of collaborative design tools for modern teams.</p>
+                    <div class="job-meta">
+                        <span><i data-lucide="dollar-sign" style="width:16px"></i> $120k - $160k</span>
+                        <span><i data-lucide="clock" style="width:16px"></i> 5h ago</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Apply Now</button>
+                </div>
+
+                <!-- Job Card 3 -->
+                <div class="card">
+                    <span class="job-tag">Internship</span>
+                    <h3>Frontend Developer Intern</h3>
+                    <p style="color: var(--text-muted); margin: 0.5rem 0;">StartupX • Bengaluru</p>
+                    <p>Learn and build production-grade React applications in a fast-paced environment.</p>
+                    <div class="job-meta">
+                        <span><i data-lucide="dollar-sign" style="width:16px"></i> ₹40k / mo</span>
+                        <span><i data-lucide="clock" style="width:16px"></i> 1d ago</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: white;">
+            <div class="container text-center">
+                <h2>Preparation Hub</h2>
+                <p style="color: var(--text-muted)">Master every round of the hiring process</p>
+
+                <div class="grid">
+                    <a href="preparation/index.html?type=aptitude" class="card">
+                        <div class="card-icon"><i data-lucide="brain"></i></div>
+                        <h3>Aptitude</h3>
+                        <p>Quantitative, Logical, and Verbal reasoning practice sets.</p>
+                    </a>
+                    <a href="preparation/index.html?type=technical" class="card">
+                        <div class="card-icon"><i data-lucide="code"></i></div>
+                        <h3>Technical Notes</h3>
+                        <p>OS, DBMS, CN, and System Design comprehensive notes.</p>
+                    </a>
+                    <a href="preparation/index.html?type=hr" class="card">
+                        <div class="card-icon"><i data-lucide="users"></i></div>
+                        <h3>HR Interview</h3>
+                        <p>Common questions, behavioral patterns, and best responses.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--border); margin-top: 4rem;">
+        <div class="container text-center">
+            <p style="color: var(--text-muted)">&copy; 2026 EliteJob Portal. Built for the next generation of engineers.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

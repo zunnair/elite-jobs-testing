@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteJob - DSA Master Sheet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .progress-bar-container {
+            width: 100%;
+            height: 12px;
+            background: var(--border);
+            border-radius: 99px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .topic-card.completed {
+            border-color: #22c55e;
+            background: #f0fdf4;
+        }
+
+        .topic-row {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            gap: 1.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .topic-row:hover {
+            background: #f8fafc;
+        }
+
+        .topic-status {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .topic-status.checked {
+            background: #22c55e;
+            border-color: #22c55e;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html" class="logo">
+            <i data-lucide="briefcase"></i>
+            EliteJob
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Jobs</a>
+            <a href="../preparation/index.html">Preparation</a>
+            <a href="../companies/index.html">Companies</a>
+            <a href="index.html" class="active">DSA Prep</a>
+        </div>
+        <div class="user-actions" style="display: flex; align-items: center;">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i data-lucide="moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 4rem;">
+        <div class="animate-fade">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>Ultimate DSA Prep Sheet</h1>
+                    <p style="color: var(--text-muted)">Master 180+ curated problems across all major topics.</p>
+                </div>
+                <div style="text-align: right;">
+                    <h2 id="progressPercent">0%</h2>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Completed</p>
+                </div>
+            </div>
+
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar-fill"></div>
+            </div>
+        </div>
+
+        <div id="dsaSheet" style="margin-top: 3rem;">
+            <!-- Topics will be dynamically rendered or pre-filled -->
+            <div class="topic-card">
+                <div class="topic-row" onclick="toggleTopic('arrays')">
+                    <div class="topic-status" id="status-arrays"><i data-lucide="check" style="width:16px"></i></div>
+                    <div style="flex-grow: 1;">
+                        <h3>Arrays & Hashing</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted)">The foundation of most algorithm
+                            problems.</p>
+                    </div>
+                    <i data-lucide="chevron-down"></i>
+                </div>
+                <div class="problem-list" id="list-arrays"
+                    style="padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: none;">
+                    <div class="problem-item">
+                        <input type="checkbox" onchange="updateProgress()">
+                        <a href="https://leetcode.com/problems/two-sum/" target="_blank">Two Sum</a>
+                        <span style="margin-left: auto; font-size: 0.8rem; color: #22c55e;">Easy</span>
+                    </div>
+                    <div class="problem-item">
+                        <input type="checkbox" onchange="updateProgress()">
+                        <a href="https://leetcode.com/problems/contains-duplicate/" target="_blank">Contains
+                            Duplicate</a>
+                        <span style="margin-left: auto; font-size: 0.8rem; color: #22c55e;">Easy</span>
+                    </div>
+                    <div class="problem-item">
+                        <input type="checkbox" onchange="updateProgress()">
+                        <a href="https://leetcode.com/problems/valid-anagram/" target="_blank">Valid Anagram</a>
+                        <span style="margin-left: auto; font-size: 0.8rem; color: #22c55e;">Easy</span>
+                    </div>
+                    <div class="problem-item">
+                        <input type="checkbox" onchange="updateProgress()">
+                        <a href="https://leetcode.com/problems/top-k-frequent-elements/" target="_blank">Top K Frequent
+                            Elements</a>
+                        <span style="margin-left: auto; font-size: 0.8rem; color: #eab308;">Medium</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-row" onclick="toggleTopic('trees')">
+                    <div class="topic-status" id="status-trees"><i data-lucide="check" style="width:16px"></i></div>
+                    <div style="flex-grow: 1;">
+                        <h3>Trees & Graphs</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted)">Recursive thinking and pathfinding.</p>
+                    </div>
+                    <i data-lucide="chevron-down"></i>
+                </div>
+                <div class="problem-list" id="list-trees"
+                    style="padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: none;">
+                    <div class="problem-item">
+                        <input type="checkbox" onchange="updateProgress()">
+                        <a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank">Invert Binary
+                            Tree</a>
+                        <span style="margin-left: auto; font-size: 0.8rem; color: #22c55e;">Easy</span>
+                    </div>
+                    <div class="problem-item">
+                        <input type="checkbox" onchange="updateProgress()">
+                        <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank">Maximum
+                            Depth</a>
+                        <span style="margin-left: auto; font-size: 0.8rem; color: #22c55e;">Easy</span>
+                    </div>
+                    <div class="problem-item">
+                        <input type="checkbox" onchange="updateProgress()">
+                        <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
+                            target="_blank">LCA of BST</a>
+                        <span style="margin-left: auto; font-size: 0.8rem; color: #eab308;">Medium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More topics could be added here -->
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        lucide.createIcons();
+
+        function toggleTopic(id) {
+            const list = document.getElementById('list-' + id);
+            const isVisible = list.style.display === 'block';
+            list.style.display = isVisible ? 'none' : 'block';
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+            const percent = Math.round((checked.length / checkboxes.length) * 100);
+
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('progressPercent').innerText = percent + '%';
+
+            // Save state to localStorage could be added here
+        }
+    </script>
+</body>
+
+</html>

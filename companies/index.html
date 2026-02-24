@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteJob - Company Hiring Processes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .company-logo-placeholder {
+            width: 64px;
+            height: 64px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .step-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html" class="logo">
+            <i data-lucide="briefcase"></i>
+            EliteJob
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Jobs</a>
+            <a href="../preparation/index.html">Preparation</a>
+            <a href="index.html" class="active">Companies</a>
+            <a href="../dsa/index.html">DSA Prep</a>
+        </div>
+        <div class="user-actions" style="display: flex; align-items: center;">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i data-lucide="moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 4rem;">
+        <div class="animate-fade">
+            <h1>Company Resource Hub</h1>
+            <p style="color: var(--text-muted)">In-depth breakdown of hiring workflows at top tech firms.</p>
+        </div>
+
+        <div class="grid" style="margin-top: 3rem;">
+            <!-- Google -->
+            <div class="card" onclick="showProcess('google')">
+                <div class="company-header" style="margin-bottom: 1.5rem;">
+                    <div class="company-logo-placeholder" style="background-color: #f7b2b2;">G</div>
+                    <div>
+                        <h3>Google</h3>
+                        <p style="color: var(--text-muted)">Internet Services</p>
+                    </div>
+                </div>
+                <p>Known for its heavy focus on Coding, System Design, and Googliness rounds.</p>
+                <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">View Process</button>
+            </div>
+
+            <!-- Amazon -->
+            <div class="card" onclick="showProcess('amazon')">
+                <div class="company-header" style="margin-bottom: 1.5rem;">
+                    <div class="company-logo-placeholder" style="background-color: #ffdfba;">A</div>
+                    <div>
+                        <h3>Amazon</h3>
+                        <p style="color: var(--text-muted)">E-commerce & Cloud</p>
+                    </div>
+                </div>
+                <p>Famed for its 16 Leadership Principles and SDE roles.</p>
+                <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">View Process</button>
+            </div>
+
+            <!-- Microsoft -->
+            <div class="card" onclick="showProcess('microsoft')">
+                <div class="company-header" style="margin-bottom: 1.5rem;">
+                    <div class="company-logo-placeholder" style="background-color: #baffc9;">M</div>
+                    <div>
+                        <h3>Microsoft</h3>
+                        <p style="color: var(--text-muted)">Software & OS</p>
+                    </div>
+                </div>
+                <p>Balanced rounds between DSA, Internships, and Core fundamentals.</p>
+                <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">View Process</button>
+            </div>
+        </div>
+
+        <!-- Hidden Process View (Simulated) -->
+        <div id="processDetail" style="margin-top: 5rem; display: none;">
+            <h2 id="companyTitle">Hiring Process - Google</h2>
+            <div style="margin-top: 2rem;">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Online Assessment</h4>
+                        <p>2 Coding questions on algorithms and data structures. Time: 90 mins.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Technical Phone Screen</h4>
+                        <p>Focus on Big-O analysis and problem-solving efficiency with a senior engineer.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>In-Person / Virtual Onsite</h4>
+                        <p>4-5 rounds covering Coding, System Design (L4+), and Behavioral (Googliness).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        lucide.createIcons();
+
+        function showProcess(company) {
+            document.getElementById('processDetail').style.display = 'block';
+            document.getElementById('companyTitle').innerText = 'Hiring Process - ' + company.toUpperCase();
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>
